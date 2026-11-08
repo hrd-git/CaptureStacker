@@ -88,6 +88,9 @@ namespace CaptureStacker
             MouseHook.SetHook(this.mouseProc);
             KeyboardHook.SetHook(this.keyboardProc);
 
+            // 保存先フォルダが無ければ作成する
+            Directory.CreateDirectory(ConfigurationManager.AppSettings["ImageStoragePath"]);
+
             // 画像ファイルの総数
             this.imageStorageCount = Directory.GetFiles(ConfigurationManager.AppSettings["ImageStoragePath"], "*", SearchOption.TopDirectoryOnly).Length;
 
@@ -225,6 +228,9 @@ namespace CaptureStacker
                     string path = ConfigurationManager.AppSettings["ImageStoragePath"];
                     string fileName = ConfigurationManager.AppSettings["FileName"]; ;
                     string extension = ConfigurationManager.AppSettings["Extension"];
+
+                    // 保存先フォルダが無ければ作成する
+                    Directory.CreateDirectory(path);
 
                     bmp.Save(path + fileName + (++this.imageStorageCount) + extension);
                 }
