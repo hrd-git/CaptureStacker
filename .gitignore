@@ -1,0 +1,15 @@
+# 参考資料
+01_参考資料/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userprefs
+
+# ビルド成果物（ImageStorage もここに含まれる）
+bin/
+obj/
+
+# NuGet
+packages/
